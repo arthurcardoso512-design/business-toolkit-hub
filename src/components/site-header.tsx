@@ -57,6 +57,7 @@ export function SiteHeader() {
             <SheetContent side="left" className="w-[88vw] max-w-sm overflow-y-auto">
               <SheetTitle className="px-4 pt-4 text-left"><BiziLogo /></SheetTitle>
               <div className="px-4 pt-5">
+                <Link to="/ferramentas" onClick={() => setOpen(false)} className="rounded-lg bg-primary/10 px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/15">Todas as ferramentas</Link>
                 <p className="px-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Ferramentas</p>
                 <nav aria-label="Ferramentas Bizi" className="mt-2 flex flex-col gap-1">
                   {TOOL_MENU.map((item) => {

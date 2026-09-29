@@ -1,10 +1,28 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useSession } from "@/lib/session";
+import { TOOL_ROUTES } from "@/lib/tools-catalog";
+
+
+const TOOL_MENU = [
+  { slug: "link-whatsapp", label: "Link WhatsApp" },
+  { slug: "qr-code", label: "QR Code Universal" },
+  { slug: "link-bio", label: "Link na Bio Inteligente" },
+  { slug: "link-temporario", label: "Link Temporário" },
+  { slug: "encurtador", label: "Encurtador de Links" },
+  { slug: "botoes-site", label: "Botões WhatsApp / Redes Sociais" },
+  { slug: "qr-personalizado", label: "QR Code Personalizado" },
+  { slug: "qr-dinamico", label: "QR Code Dinâmico" },
+  { slug: "qr-pix", label: "QR Code Pix" },
+  { slug: "placa-pix", label: "Placa Pix" },
+  { slug: "orcamento", label: "Orçamento" },
+  { slug: "recibo", label: "Recibo" },
+  { slug: "cartao-digital", label: "Cartão Digital" },
+];
 
 const NAV = [
   { to: "/ferramentas", label: "Ferramentas" },
@@ -28,7 +46,32 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Link to="/" aria-label="Bizi — início"><BiziLogo /></Link>
+        <div className="flex items-center gap-2">
+          <Link to="/" aria-label="Bizi — início"><BiziLogo /></Link>
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" aria-label="Abrir menu de ferramentas" className="h-9 w-9">
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[88vw] max-w-sm overflow-y-auto">
+              <SheetTitle className="px-4 pt-4 text-left"><BiziLogo /></SheetTitle>
+              <div className="px-4 pt-5">
+                <p className="px-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Ferramentas</p>
+                <nav aria-label="Ferramentas Bizi" className="mt-2 flex flex-col gap-1">
+                  {TOOL_MENU.map((item) => {
+                    const href = TOOL_ROUTES[item.slug];
+                    return href ? (
+                      <Link key={item.slug} to={href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-foreground">
+                        {item.label}
+                      </Link>
+                    ) : null;
+                  })}
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
 
         <nav aria-label="Principal" className="hidden items-center gap-1 md:flex">
           {NAV.map((item) => (
@@ -49,31 +92,6 @@ export function SiteHeader() {
           )}
         </div>
 
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="outline" size="icon" aria-label="Abrir menu"><Menu className="h-5 w-5" aria-hidden="true" /></Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[85vw] max-w-xs">
-            <SheetTitle className="px-4 pt-4 text-left"><BiziLogo /></SheetTitle>
-            <nav aria-label="Menu" className="mt-4 flex flex-col gap-1 px-4">
-              {NAV.map((item) => (
-                <Link key={item.to} to={item.to} onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium hover:bg-accent">
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-            <div className="mt-6 flex flex-col gap-2 px-4">
-              {user ? (
-                <Button asChild onClick={() => setOpen(false)}><Link to="/dashboard">Meu painel</Link></Button>
-              ) : (
-                <>
-                  <Button asChild variant="outline" onClick={() => setOpen(false)}><Link to="/auth">Entrar</Link></Button>
-                  <Button asChild onClick={() => setOpen(false)}><Link to="/auth" search={{ modo: "cadastro" }}>Começar grátis</Link></Button>
-                </>
-              )}
-            </div>
-          </SheetContent>
-        </Sheet>
       </div>
     </header>
   );

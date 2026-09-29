@@ -16,6 +16,7 @@ import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
 import { Route as LinkWhatsappRouteImport } from './routes/ferramentas/link-whatsapp'
 import { Route as QrCodeRouteImport } from './routes/ferramentas/qr-code'
+import { Route as ToolSlugRouteImport } from './routes/ferramentas/$toolSlug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -65,6 +66,12 @@ const QrCodeRoute = QrCodeRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 
+const ToolSlugRoute = ToolSlugRouteImport.update({
+  id: '/ferramentas/$toolSlug',
+  path: '/ferramentas/$toolSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/como-funciona': typeof ComoFuncionaRoute
   '/ferramentas/link-whatsapp': typeof LinkWhatsappRoute
   '/ferramentas/qr-code': typeof QrCodeRoute
+  '/ferramentas/$toolSlug': typeof ToolSlugRoute
 }
 export interface FileRoutesByTo extends FileRoutesByFullPath {}
 export interface FileRoutesById {
@@ -104,6 +112,7 @@ export interface RootRouteChildren {
   ComoFuncionaRoute: typeof ComoFuncionaRoute
   LinkWhatsappRoute: typeof LinkWhatsappRoute
   QrCodeRoute: typeof QrCodeRoute
+  ToolSlugRoute: typeof ToolSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -164,6 +173,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QrCodeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ferramentas/$toolSlug': {
+      id: '/ferramentas/$toolSlug'
+      path: '/ferramentas/$toolSlug'
+      fullPath: '/ferramentas/$toolSlug'
+      preLoaderRoute: typeof ToolSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -176,6 +192,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComoFuncionaRoute,
   LinkWhatsappRoute,
   QrCodeRoute,
+  ToolSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Crown, LockKeyhole, ShieldCheck, Smartphone, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, Check, Crown, ShieldCheck, Smartphone, Sparkles, Zap } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
 import { ToolCard } from "@/components/tool-card";
 import { ErrorState, LoadingState } from "@/components/states";
@@ -73,7 +73,7 @@ function Home() {
         </nav>
 
         {toolsLoading ? <LoadingState label="Carregando ferramentas..." /> : toolsError ? <div className="mt-6"><ErrorState onRetry={() => refetchTools()} /></div> : (
-          <div className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden]">
+          <div className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {featuredTools.map((tool) => <div key={tool.id} className="w-[82vw] shrink-0 snap-start sm:w-[48%] lg:w-[31%] glow-hover"><ToolCard tool={tool} /></div>)}
           </div>
         )}

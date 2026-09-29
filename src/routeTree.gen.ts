@@ -159,7 +159,6 @@ export interface FileRoutesByFullPath {
   '/ferramentas/link-whatsapp': typeof LinkWhatsappRoute
   '/ferramentas/qr-code': typeof QrCodeRoute
   '/ferramentas/qr-wifi': typeof QrWifiRoute
-  '/ferramentas/qr-wifi': typeof QrWifiRoute
   '/ferramentas/link-bio': typeof LinkBioRoute
   '/ferramentas/link-temporario': typeof LinkTemporarioRoute
   '/ferramentas/encurtador': typeof EncurtadorRoute
@@ -183,6 +182,7 @@ export interface FileRoutesById {
   '/como-funciona': typeof ComoFuncionaRoute
   '/ferramentas/link-whatsapp': typeof LinkWhatsappRoute
   '/ferramentas/qr-code': typeof QrCodeRoute
+  '/ferramentas/qr-wifi': typeof QrWifiRoute
   '/ferramentas/link-bio': typeof LinkBioRoute
   '/ferramentas/link-temporario': typeof LinkTemporarioRoute
   '/ferramentas/encurtador': typeof EncurtadorRoute

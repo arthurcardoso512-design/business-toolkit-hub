@@ -57,9 +57,11 @@ export function SiteHeader() {
             <SheetContent side="left" className="w-[88vw] max-w-sm overflow-y-auto">
               <SheetTitle className="px-4 pt-4 text-left"><BiziLogo /></SheetTitle>
               <div className="px-4 pt-5">
-                <Link to="/ferramentas" onClick={() => setOpen(false)} className="rounded-lg bg-primary/10 px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/15">Todas as ferramentas</Link>
                 <p className="px-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Ferramentas</p>
                 <nav aria-label="Ferramentas Bizi" className="mt-2 flex flex-col gap-1">
+                  <Link to="/ferramentas" onClick={() => setOpen(false)} className="rounded-lg bg-primary/10 px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/15">
+                    Todas as ferramentas
+                  </Link>
                   {TOOL_MENU.map((item) => {
                     const href = TOOL_ROUTES[item.slug];
                     return href ? (
@@ -69,6 +71,32 @@ export function SiteHeader() {
                     ) : null;
                   })}
                 </nav>
+
+                <p className="mt-7 px-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Navegação</p>
+                <nav aria-label="Navegação Bizi" className="mt-2 flex flex-col gap-1">
+                  {NAV.map((item) => (
+                    <Link key={item.to} to={item.to} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-foreground">
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+
+                <div className="mt-7 flex flex-col gap-2">
+                  {user ? (
+                    <Button asChild onClick={() => setOpen(false)}>
+                      <Link to="/dashboard">Meu painel</Link>
+                    </Button>
+                  ) : (
+                    <>
+                      <Button asChild variant="outline" onClick={() => setOpen(false)}>
+                        <Link to="/auth">Entrar</Link>
+                      </Button>
+                      <Button asChild onClick={() => setOpen(false)}>
+                        <Link to="/auth" search={{ modo: "cadastro" }}>Começar grátis</Link>
+                      </Button>
+                    </>
+                  )}
+                </div>
               </div>
             </SheetContent>
           </Sheet>

@@ -16,6 +16,7 @@ import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
 import { Route as LinkWhatsappRouteImport } from './routes/ferramentas/link-whatsapp'
 import { Route as QrCodeRouteImport } from './routes/ferramentas/qr-code'
+import { Route as QrWifiRouteImport } from './routes/ferramentas/qr-wifi'
 import { Route as LinkBioRouteImport } from './routes/ferramentas/link-bio'
 import { Route as LinkTemporarioRouteImport } from './routes/ferramentas/link-temporario'
 import { Route as EncurtadorRouteImport } from './routes/ferramentas/encurtador'
@@ -73,6 +74,12 @@ const LinkWhatsappRoute = LinkWhatsappRouteImport.update({
 const QrCodeRoute = QrCodeRouteImport.update({
   id: '/ferramentas/qr-code',
   path: '/ferramentas/qr-code',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const QrWifiRoute = QrWifiRouteImport.update({
+  id: '/ferramentas/qr-wifi',
+  path: '/ferramentas/qr-wifi',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -151,6 +158,8 @@ export interface FileRoutesByFullPath {
   '/como-funciona': typeof ComoFuncionaRoute
   '/ferramentas/link-whatsapp': typeof LinkWhatsappRoute
   '/ferramentas/qr-code': typeof QrCodeRoute
+  '/ferramentas/qr-wifi': typeof QrWifiRoute
+  '/ferramentas/qr-wifi': typeof QrWifiRoute
   '/ferramentas/link-bio': typeof LinkBioRoute
   '/ferramentas/link-temporario': typeof LinkTemporarioRoute
   '/ferramentas/encurtador': typeof EncurtadorRoute
@@ -274,6 +283,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QrCodeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ferramentas/qr-wifi': {
+      id: '/ferramentas/qr-wifi'
+      path: '/ferramentas/qr-wifi'
+      fullPath: '/ferramentas/qr-wifi'
+      preLoaderRoute: typeof QrWifiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ferramentas/link-bio': {
       id: '/ferramentas/link-bio'
       path: '/ferramentas/link-bio'
@@ -363,6 +379,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComoFuncionaRoute,
   LinkWhatsappRoute,
   QrCodeRoute,
+  QrWifiRoute,
   LinkBioRoute,
   LinkTemporarioRoute,
   EncurtadorRoute,

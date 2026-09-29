@@ -23,7 +23,7 @@ export function SiteHeader() {
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <LayoutGrid className="h-4 w-4" aria-hidden="true" />
           </span>
-          HUB
+          Hub de ferramentas
         </Link>
 
         <nav aria-label="Principal" className="hidden items-center gap-1 md:flex">

@@ -48,7 +48,7 @@ function Home() {
       <section className="container-page py-12 md:py-16">
         <div className="flex items-end justify-between gap-4"><div><p className="text-sm font-semibold text-primary">Acesso rápido</p><h2 className="mt-1 text-2xl font-semibold">Ferramentas em destaque</h2><p className="mt-2 text-sm text-muted-foreground">Comece por uma tarefa e resolva em poucos cliques.</p></div><Button asChild variant="outline" className="hidden sm:inline-flex"><Link to="/ferramentas">Ver todas</Link></Button></div>
         {toolsLoading ? <LoadingState label="Carregando ferramentas..." /> : toolsError ? <div className="mt-6"><ErrorState onRetry={() => refetchTools()} /></div> : (
-          <div className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden]">
+          <div className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {featuredTools.map((tool) => <div key={tool.id} className="w-[82vw] shrink-0 snap-start sm:w-[48%] lg:w-[31%]"><ToolCard tool={tool} /></div>)}
           </div>
         )}

@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 
-import { PageShell } from "@/components/page-shell";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -46,15 +45,5 @@ export function ToolHeader({
         </div>
       </div>
     </div>
-  );
-}
-
-export function ToolPageShell({ children }: { children: ReactNode }) {
-  return (
-    <PageShell>
-      <section className="container-page py-8 md:py-12">
-        <div className="mx-auto max-w-4xl">{children}</div>
-      </section>
-    </PageShell>
   );
 }

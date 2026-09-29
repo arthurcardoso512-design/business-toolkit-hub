@@ -1,22 +1,22 @@
 /**
- * Metadados de apresentação das ferramentas (ícone e destino).
- * A disponibilidade real (ativa / gratuita) vem sempre do banco.
+ * Destinos oficiais das ferramentas.
+ * Cada ferramenta possui sua própria rota de trabalho, mesmo quando ainda está em desenvolvimento.
  */
 export const TOOL_ROUTES: Record<string, string | null> = {
   "link-whatsapp": "/ferramentas/link-whatsapp",
   "qr-code": "/ferramentas/qr-code",
   "qr-wifi": "/ferramentas/qr-code",
-  "link-bio": null,
-  "link-temporario": null,
-  encurtador: null,
-  "botoes-site": null,
-  "qr-personalizado": null,
-  "qr-dinamico": null,
-  "qr-pix": null,
-  "placa-pix": null,
-  orcamento: null,
-  recibo: null,
-  "cartao-digital": null,
+  "link-bio": "/ferramentas/link-bio",
+  "link-temporario": "/ferramentas/link-temporario",
+  encurtador: "/ferramentas/encurtador",
+  "botoes-site": "/ferramentas/botoes-site",
+  "qr-personalizado": "/ferramentas/qr-personalizado",
+  "qr-dinamico": "/ferramentas/qr-dinamico",
+  "qr-pix": "/ferramentas/qr-pix",
+  "placa-pix": "/ferramentas/placa-pix",
+  orcamento: "/ferramentas/orcamento",
+  recibo: "/ferramentas/recibo",
+  "cartao-digital": "/ferramentas/cartao-digital",
 };
 
 export const TOOL_ICONS: Record<string, string> = {

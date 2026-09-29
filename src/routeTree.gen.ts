@@ -16,7 +16,17 @@ import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
 import { Route as LinkWhatsappRouteImport } from './routes/ferramentas/link-whatsapp'
 import { Route as QrCodeRouteImport } from './routes/ferramentas/qr-code'
-import { Route as ToolSlugRouteImport } from './routes/ferramentas/$toolSlug'
+import { Route as LinkBioRouteImport } from './routes/ferramentas/link-bio'
+import { Route as LinkTemporarioRouteImport } from './routes/ferramentas/link-temporario'
+import { Route as EncurtadorRouteImport } from './routes/ferramentas/encurtador'
+import { Route as BotoesSiteRouteImport } from './routes/ferramentas/botoes-site'
+import { Route as QrPersonalizadoRouteImport } from './routes/ferramentas/qr-personalizado'
+import { Route as QrDinamicoRouteImport } from './routes/ferramentas/qr-dinamico'
+import { Route as QrPixRouteImport } from './routes/ferramentas/qr-pix'
+import { Route as PlacaPixRouteImport } from './routes/ferramentas/placa-pix'
+import { Route as OrcamentoRouteImport } from './routes/ferramentas/orcamento'
+import { Route as ReciboRouteImport } from './routes/ferramentas/recibo'
+import { Route as CartaoDigitalRouteImport } from './routes/ferramentas/cartao-digital'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -66,9 +76,69 @@ const QrCodeRoute = QrCodeRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 
-const ToolSlugRoute = ToolSlugRouteImport.update({
-  id: '/ferramentas/$toolSlug',
-  path: '/ferramentas/$toolSlug',
+const LinkBioRoute = LinkBioRouteImport.update({
+  id: '/ferramentas/link-bio',
+  path: '/ferramentas/link-bio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const LinkTemporarioRoute = LinkTemporarioRouteImport.update({
+  id: '/ferramentas/link-temporario',
+  path: '/ferramentas/link-temporario',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const EncurtadorRoute = EncurtadorRouteImport.update({
+  id: '/ferramentas/encurtador',
+  path: '/ferramentas/encurtador',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const BotoesSiteRoute = BotoesSiteRouteImport.update({
+  id: '/ferramentas/botoes-site',
+  path: '/ferramentas/botoes-site',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const QrPersonalizadoRoute = QrPersonalizadoRouteImport.update({
+  id: '/ferramentas/qr-personalizado',
+  path: '/ferramentas/qr-personalizado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const QrDinamicoRoute = QrDinamicoRouteImport.update({
+  id: '/ferramentas/qr-dinamico',
+  path: '/ferramentas/qr-dinamico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const QrPixRoute = QrPixRouteImport.update({
+  id: '/ferramentas/qr-pix',
+  path: '/ferramentas/qr-pix',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const PlacaPixRoute = PlacaPixRouteImport.update({
+  id: '/ferramentas/placa-pix',
+  path: '/ferramentas/placa-pix',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const OrcamentoRoute = OrcamentoRouteImport.update({
+  id: '/ferramentas/orcamento',
+  path: '/ferramentas/orcamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const ReciboRoute = ReciboRouteImport.update({
+  id: '/ferramentas/recibo',
+  path: '/ferramentas/recibo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const CartaoDigitalRoute = CartaoDigitalRouteImport.update({
+  id: '/ferramentas/cartao-digital',
+  path: '/ferramentas/cartao-digital',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -81,7 +151,17 @@ export interface FileRoutesByFullPath {
   '/como-funciona': typeof ComoFuncionaRoute
   '/ferramentas/link-whatsapp': typeof LinkWhatsappRoute
   '/ferramentas/qr-code': typeof QrCodeRoute
-  '/ferramentas/$toolSlug': typeof ToolSlugRoute
+  '/ferramentas/link-bio': typeof LinkBioRoute
+  '/ferramentas/link-temporario': typeof LinkTemporarioRoute
+  '/ferramentas/encurtador': typeof EncurtadorRoute
+  '/ferramentas/botoes-site': typeof BotoesSiteRoute
+  '/ferramentas/qr-personalizado': typeof QrPersonalizadoRoute
+  '/ferramentas/qr-dinamico': typeof QrDinamicoRoute
+  '/ferramentas/qr-pix': typeof QrPixRoute
+  '/ferramentas/placa-pix': typeof PlacaPixRoute
+  '/ferramentas/orcamento': typeof OrcamentoRoute
+  '/ferramentas/recibo': typeof ReciboRoute
+  '/ferramentas/cartao-digital': typeof CartaoDigitalRoute
 }
 export interface FileRoutesByTo extends FileRoutesByFullPath {}
 export interface FileRoutesById {
@@ -94,6 +174,17 @@ export interface FileRoutesById {
   '/como-funciona': typeof ComoFuncionaRoute
   '/ferramentas/link-whatsapp': typeof LinkWhatsappRoute
   '/ferramentas/qr-code': typeof QrCodeRoute
+  '/ferramentas/link-bio': typeof LinkBioRoute
+  '/ferramentas/link-temporario': typeof LinkTemporarioRoute
+  '/ferramentas/encurtador': typeof EncurtadorRoute
+  '/ferramentas/botoes-site': typeof BotoesSiteRoute
+  '/ferramentas/qr-personalizado': typeof QrPersonalizadoRoute
+  '/ferramentas/qr-dinamico': typeof QrDinamicoRoute
+  '/ferramentas/qr-pix': typeof QrPixRoute
+  '/ferramentas/placa-pix': typeof PlacaPixRoute
+  '/ferramentas/orcamento': typeof OrcamentoRoute
+  '/ferramentas/recibo': typeof ReciboRoute
+  '/ferramentas/cartao-digital': typeof CartaoDigitalRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -112,7 +203,17 @@ export interface RootRouteChildren {
   ComoFuncionaRoute: typeof ComoFuncionaRoute
   LinkWhatsappRoute: typeof LinkWhatsappRoute
   QrCodeRoute: typeof QrCodeRoute
-  ToolSlugRoute: typeof ToolSlugRoute
+  LinkBioRoute,
+  LinkTemporarioRoute,
+  EncurtadorRoute,
+  BotoesSiteRoute,
+  QrPersonalizadoRoute,
+  QrDinamicoRoute,
+  QrPixRoute,
+  PlacaPixRoute,
+  OrcamentoRoute,
+  ReciboRoute,
+  CartaoDigitalRoute,
 }
 
 declare module '@tanstack/react-router' {
@@ -173,11 +274,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QrCodeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ferramentas/$toolSlug': {
-      id: '/ferramentas/$toolSlug'
-      path: '/ferramentas/$toolSlug'
-      fullPath: '/ferramentas/$toolSlug'
-      preLoaderRoute: typeof ToolSlugRouteImport
+    '/ferramentas/link-bio': {
+      id: '/ferramentas/link-bio'
+      path: '/ferramentas/link-bio'
+      fullPath: '/ferramentas/link-bio'
+      preLoaderRoute: typeof LinkBioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/link-temporario': {
+      id: '/ferramentas/link-temporario'
+      path: '/ferramentas/link-temporario'
+      fullPath: '/ferramentas/link-temporario'
+      preLoaderRoute: typeof LinkTemporarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/encurtador': {
+      id: '/ferramentas/encurtador'
+      path: '/ferramentas/encurtador'
+      fullPath: '/ferramentas/encurtador'
+      preLoaderRoute: typeof EncurtadorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/botoes-site': {
+      id: '/ferramentas/botoes-site'
+      path: '/ferramentas/botoes-site'
+      fullPath: '/ferramentas/botoes-site'
+      preLoaderRoute: typeof BotoesSiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/qr-personalizado': {
+      id: '/ferramentas/qr-personalizado'
+      path: '/ferramentas/qr-personalizado'
+      fullPath: '/ferramentas/qr-personalizado'
+      preLoaderRoute: typeof QrPersonalizadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/qr-dinamico': {
+      id: '/ferramentas/qr-dinamico'
+      path: '/ferramentas/qr-dinamico'
+      fullPath: '/ferramentas/qr-dinamico'
+      preLoaderRoute: typeof QrDinamicoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/qr-pix': {
+      id: '/ferramentas/qr-pix'
+      path: '/ferramentas/qr-pix'
+      fullPath: '/ferramentas/qr-pix'
+      preLoaderRoute: typeof QrPixRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/placa-pix': {
+      id: '/ferramentas/placa-pix'
+      path: '/ferramentas/placa-pix'
+      fullPath: '/ferramentas/placa-pix'
+      preLoaderRoute: typeof PlacaPixRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/orcamento': {
+      id: '/ferramentas/orcamento'
+      path: '/ferramentas/orcamento'
+      fullPath: '/ferramentas/orcamento'
+      preLoaderRoute: typeof OrcamentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/recibo': {
+      id: '/ferramentas/recibo'
+      path: '/ferramentas/recibo'
+      fullPath: '/ferramentas/recibo'
+      preLoaderRoute: typeof ReciboRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/cartao-digital': {
+      id: '/ferramentas/cartao-digital'
+      path: '/ferramentas/cartao-digital'
+      fullPath: '/ferramentas/cartao-digital'
+      preLoaderRoute: typeof CartaoDigitalRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -192,7 +363,17 @@ const rootRouteChildren: RootRouteChildren = {
   ComoFuncionaRoute,
   LinkWhatsappRoute,
   QrCodeRoute,
-  ToolSlugRoute,
+  LinkBioRoute,
+  LinkTemporarioRoute,
+  EncurtadorRoute,
+  BotoesSiteRoute,
+  QrPersonalizadoRoute,
+  QrDinamicoRoute,
+  QrPixRoute,
+  PlacaPixRoute,
+  OrcamentoRoute,
+  ReciboRoute,
+  CartaoDigitalRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

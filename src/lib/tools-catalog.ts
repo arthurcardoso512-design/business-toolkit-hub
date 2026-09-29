@@ -5,7 +5,7 @@
 export const TOOL_ROUTES: Record<string, string | null> = {
   "link-whatsapp": "/ferramentas/link-whatsapp",
   "qr-code": "/ferramentas/qr-code",
-  "qr-wifi": "/ferramentas/qr-code",
+  "qr-wifi": "/ferramentas/qr-wifi",
   "link-bio": "/ferramentas/link-bio",
   "link-temporario": "/ferramentas/link-temporario",
   encurtador: "/ferramentas/encurtador",
